@@ -63,7 +63,7 @@ export  function Book() {
   const [availabitility, setAvailability] = useState(false);
   const [likes, setLikes] = useState<number>(0);
   const [liked,setLiked]=useState<boolean>(false)
-
+  const [price,setPrice]=useState<number>(0)
   const [displaySlots,setDisplaySlots]=useState<string[]>()
   const {toast}=useToast()
   
@@ -208,12 +208,31 @@ export  function Book() {
     let temp:string[]=[]
     for(let i=0;i<details.length;i++)
     {
+     
       if(details[i].date==date)
       {
           temp.push(details[i].slot)
       }
     }
     setDisplaySlots(temp)
+  }
+
+  function handleSlotChange(slot:string)
+  {
+    
+    
+    for(let i=0;i<details.length;i++)
+    {
+      console.log(details[i])
+      if(details[i].date==date && details[i].slot==slot)
+      {
+        
+        setPrice(details[i].price)
+      }
+    }
+    setSlot(slot);
+
+
   }
 
   useEffect(() => {
@@ -320,7 +339,7 @@ export  function Book() {
                   </div>
                   <div>
                     <Label htmlFor="time">Time Slot</Label>
-                    <Select onValueChange={(val)=>{setSlot(val);console.log(val)}}>
+                    <Select onValueChange={(val)=>{handleSlotChange(val)}}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select Time" />
                       </SelectTrigger>
@@ -334,6 +353,10 @@ export  function Book() {
                       </SelectContent>
                     </Select>
                   </div>
+                </div>
+                <div className="bg-white text-center py-2">
+                  <Label htmlFor="price " className="text-2xl">Price</Label>
+                  <div className="text-2xl font-bold">{`INR ${price}`}</div>
                 </div>
                 <div>
                   <Label htmlFor="payment">Payment Method</Label>

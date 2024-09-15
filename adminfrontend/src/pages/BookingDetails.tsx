@@ -96,7 +96,7 @@ export function BookingDetails() {
                     
         console.log(res)
         setIsOpen(false)
-        window.location.reload()
+     
 
 
     }
@@ -109,9 +109,9 @@ export function BookingDetails() {
     <>
     <NavBar val="Booking Details"></NavBar>
     <div className=" bg-slate-900 grid min-h-screen mt-16 w-full grid-cols-1 gap-6 bg-muted/40 p-4 sm:grid-cols-2 sm:p-6 md:grid-cols-1 lg:grid-cols-2 lg:gap-8">
-      <Card className="col-span-1 lg:col-span-1 border-purple-400 border-2 hover:border-4">
+      <Card className="col-span-1 lg:col-span-1 border-cyan-500 border-2 hover:border-4">
         <CardHeader>
-          <CardTitle>Users Yet to Play</CardTitle>
+          <CardTitle>Users Yet to Pay</CardTitle>
           <CardDescription>View and manage upcoming turf bookings.</CardDescription>
         </CardHeader>
         <CardContent>
@@ -209,9 +209,9 @@ export function BookingDetails() {
           </div>
         </CardFooter>
       </Card>
-      <Card className="col-span-1 lg:col-span-1  border-purple-400 border-2 hover:border-4">
+      <Card className="col-span-1 lg:col-span-1  border-cyan-500 border-2 hover:border-4">
         <CardHeader>
-          <CardTitle>Users Played</CardTitle>
+          <CardTitle>Users Paid</CardTitle>
           <CardDescription>View and manage completed turf bookings.</CardDescription>
         </CardHeader>
         <CardContent>

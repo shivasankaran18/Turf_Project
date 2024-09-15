@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { Details } from './pages/Details'
 import { BookingDetails } from './pages/BookingDetails'
 import { Landing } from './pages/Landing'
 import { Contact } from './pages/Contact'
+
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/details" element={<Details />}></Route>
           <Route path="/bookingDetails" element={<BookingDetails />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+       
          
         </Routes>
       

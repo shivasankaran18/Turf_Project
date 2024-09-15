@@ -146,5 +146,20 @@ const payment = async(req,res)=>{
       }
 }
 
+const getUsers=async(req,res)=>{
+    try{
+        const users=await prisma.user.findMany({
+            where:{
+                id:{not:req.headers.id}
+            }
+        })
+        return res.json({users})
+    }
+    catch{
+        return res.json({msg:"error"})
+    }
 
-export {login,register,detail,payment}
+}
+
+
+export {login,register,detail,payment,getUsers}

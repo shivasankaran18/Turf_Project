@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavBar } from "../components/Navbar";
 import { Button } from "../shadcn/ui/button";
-import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogFooter,DialogTrigger } from "../shadcn/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogFooter } from "../shadcn/ui/dialog";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
-import { useNavigate } from "react-router-dom";
+
 
 type Turf = {
   id: number;
@@ -48,7 +48,7 @@ export function Details() {
   const [turfDetails, setTurfDetails] = useState<Turf>();
   const [newTurfDetails, setNewTurfDetails] = useState<Turf>();
 
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     let final = new Date().toISOString().split("T")[0];
@@ -66,7 +66,7 @@ export function Details() {
   }, []);
 
   const handleSaveTurfDetails = async () => {
-    const res = await axios.post(
+    await axios.post(
       `${BACKEND_URL}/api/admin/updateTurfDetails`,
       {
         details: newTurfDetails,
@@ -83,7 +83,7 @@ export function Details() {
 
   const handleSaveSlot = async () => {
     console.log(slotToEdit)
-    const res = await axios.post(
+    await axios.post(
       `${BACKEND_URL}/api/admin/updateTurfSlots`,
       {
         slot: slotToEdit,
@@ -100,7 +100,7 @@ export function Details() {
 
   const handleAddSlot = async () => {
     console.log(newSlot)
-    const res = await axios.post(
+     await axios.post(
       `${BACKEND_URL}/api/admin/addTurfSlots`,
       {
         slots: newSlot,
@@ -115,7 +115,7 @@ export function Details() {
     setNewSlot(temp);
 
     setIsAddSlotOpen(false)
-    window.location.reload()
+    // window.location.reload()
   };
 
   if (!turfDetails) {

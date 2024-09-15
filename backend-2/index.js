@@ -5,8 +5,8 @@ import turfRouter from "./routes/turfRoute.js";
 import userRouter from "./routes/userRoute.js";
 
 import adminRouter from "./routes/adminRoute.js";
-
 import { PrismaClient } from "@prisma/client";
+import tournamentRouter from "./routes/tournamentRoute.js";
 
 const prisma=new PrismaClient()
 
@@ -27,15 +27,13 @@ app.use(cors())
 app.use("/api/admin",adminRouter)
 app.use("/api/turfdetails",turfRouter)
 app.use("/api/user",userRouter)
+app.use("/api/tournament",tournamentRouter)
 
 
 app.get("/test",async(req,res)=>{
-    const data=await prisma.adminDetails.deleteMany({
-        where:{
-            id:14
-        }
+    const data=await prisma.tournament.deleteMany({
         
-    })
+})
     return res.json(data)
 })
 

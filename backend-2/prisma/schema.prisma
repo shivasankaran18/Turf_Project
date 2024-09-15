@@ -21,6 +21,8 @@ model User{
   password String
   userBooking UserBooking[]
   reviews Reviews[]
+  member Member[]
+  tournment TournamentParticipant[]
 }
 
 model Turf {
@@ -37,6 +39,41 @@ model Turf {
   userbooking UserBooking[]
   reviews     Reviews[]
   Sports String[]
+  Tournament Tournament[]
+}
+
+model Tournament {
+  id                    Int       @id @default(autoincrement())
+  name                  String @unique
+  mode                  Int
+  turfId                Int
+  total_teams           Int     
+  duration              Int        
+  price                 Int         
+  images                String[]     
+  registrationstartDate String
+  registrationendDate   String
+  tournamentparticipation   TournamentParticipant[]
+  turf  Turf  @relation(fields: [turfId], references: [id], onDelete: Cascade)
+}
+
+model TournamentParticipant{
+  id Int @id @default(autoincrement())
+  tournamentId  Int
+  teamLeadId    Int 
+  teamLeadName String
+  members      Member[]
+  teamLead    User  @relation(fields: [teamLeadId],references: [id])
+  tournament  Tournament @relation(fields: [tournamentId],references: [id],onDelete: Cascade)
+}
+
+model Member{
+  id Int @id @default(autoincrement())
+  userId Int
+  participation_id  Int
+  name String
+  tournamentParticipation TournamentParticipant @relation(fields: [participation_id],references: [id],onDelete: Cascade)
+  user User @relation(fields: [userId],references: [id],onDelete: Cascade)
 }
 
 model adminDetails {
@@ -78,7 +115,7 @@ model UserBooking{
   price Int @default(500)
   paid Boolean @default(false)
   user  User @relation(fields: [userId],references: [id],onDelete: Cascade)
-  turf Turf @relation(fields: [turfId],references: [id],onDelete: Cascade)
+  turf Turf @relation(fields: [turfId],references: [id],onDelete: Cascade) 
 }
 
 

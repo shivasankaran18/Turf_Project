@@ -55,7 +55,7 @@ const addTurf = async (req, res) => {
         return `https://${bucket_name}.s3.${bucket_region}.amazonaws.com/${params.Key}`;
       }));
 
-      const newTurf = await prisma.turf.create({
+      const newTurf = await tx.turf.create({
         data: {
           turfName: req.body.turfName,
           area: req.body.area,

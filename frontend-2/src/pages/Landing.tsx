@@ -18,7 +18,7 @@ export  function Landing() {
         </Link>
         <div className="ml-auto block md:flex gap-4">
           <Button variant={"destructive"} className="w-52 mt-8 z-10" onClick={()=>navigate("/signin")}>Signin</Button>
-          <Button variant={"destructive"} className="w-52 mt-8 z-10" onClick={()=>navigate("/signup")}>Sigup</Button>
+          <Button variant={"destructive"} className="w-52 mt-8 z-10" onClick={()=>navigate("/signup")}>Sign up</Button>
 
           
         </div>

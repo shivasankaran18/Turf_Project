@@ -18,7 +18,6 @@ adminRouter.post("/addtime",authMiddleWare,addTimeSlot);
 adminRouter.post("/register",adminregister);
 adminRouter.post("/login",adminlogin);
 adminRouter.get("/details",authMiddleWare,admindetail);
-adminRouter.post("/addturf",authMiddleWare,upload.array("images"),addTurf)
 adminRouter.get("/getTurf",authMiddleWare,getTurf)
 adminRouter.post("/updateTurfDetails",authMiddleWare,updateTurfDetails)
 adminRouter.post("/updateTurfSlots",authMiddleWare,updateTurfSlots)
@@ -27,6 +26,7 @@ adminRouter.get("/getNotPaidDetails",authMiddleWare,getNotPaidDetails)
 adminRouter.get("/getPaidDetails",authMiddleWare,getPaidDetails)
 adminRouter.post("/addturf",authMiddleWare,upload.array('images',5),addTurf)
 adminRouter.post("/markpaid",authMiddleWare,markpaid)
+
 // adminRouter.get("/getTurf",authMiddleWare,admingetTurf)
 
 export default adminRouter

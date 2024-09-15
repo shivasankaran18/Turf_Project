@@ -1,11 +1,11 @@
 import { SetStateAction, useEffect, useState } from "react"
 import { NavBar } from "../components/Navbar"
 import { Button } from "../shadcn/ui/button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../shadcn/ui/card"
+
 import axios from "axios"
 import { BACKEND_URL } from "../config"
 import { Spinner } from "../components/Spinner"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, } from "react-router-dom"
 import { Label } from "../shadcn/ui/label"
 import { Input } from "../shadcn/ui/input"
 
@@ -34,7 +34,7 @@ export  function Home() {
   const [flag,setFlag]=useState<boolean>(true)
   const [available,setAvailable]=useState<boolean>(true)
   const [isOpenCard,setIsOpenCard]=useState<boolean>(false)
-  const  navigate=useNavigate()
+
   const [newTurf,setNewTurf]=useState<detial>({area:" ",city:" ",state:" ",turfName:" "})
   const [images, setImages] = useState([]);
 
@@ -126,14 +126,14 @@ export  function Home() {
         <NavBar val='home' />
         <br></br>
         <br></br>
-      <div className="flex min-h-screen w-full flex-col bg-background">
+      <div className="flex min-h-screen w-full flex-col bg-[#0f172a]">
         
         <div className="flex justify-center items-center h-screen">
                     
         <div className="flex flex-col items-center justify-center space-y-4">
               <ClipboardIcon className="h-16 w-16 text-muted" />
-              <h2 className="text-2xl font-bold">No Turfs Found</h2>
-              <p className="text-muted-foreground">
+              <h2 className="text-2xl font-bold text-white">No Turfs Found</h2>
+              <p className="text-muted  text-white">
                 You don't have any turfs yet. Click the "Add Turf" button to get started.
               </p>
              <Button size={"lg"} className="bg-green-600 hover:bg-green-800" onClick={()=>setIsOpenCard(true)}>
@@ -223,12 +223,12 @@ export  function Home() {
     <div className="flex min-h-screen w-full flex-col ">
         <NavBar val="home" />
      
-      <main className="flex-1 px-4 py-8 sm:px-6 mt-16">
+      <main className="flex-1 px-4 py-4 sm:px-6 mt-5">
         <div className="mx-auto  bg-[#0f172a] w-full">
         
 
 <CardContainer className="inter-var ">
-      <CardBody  className="bg-slate-700 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  sm:w-[30rem] h-auto rounded-xl p-6 border ">
+      <CardBody  className="bg-slate-700 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]   h-full rounded-xl p-6 border ">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-white"
@@ -254,7 +254,7 @@ export  function Home() {
                     details?.images[0]}
             height="1000"
             width="1000"
-            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl border-purple-400 border"
+            className="h-96 w-full object-cover rounded-xl group-hover/card:shadow-xl border-cyan-500 border"
             alt="thumbnail"
           />
         </CardItem>
@@ -268,7 +268,7 @@ export  function Home() {
             
           >
         
-            <Link to={`/details`} >View Turf Detaisl</Link>
+            <Link to={`/details`} >View Turf Details</Link>
 
             
           </CardItem>

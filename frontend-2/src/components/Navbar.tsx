@@ -25,6 +25,9 @@ export const NavBar = ({val}:{val:string}) => {
                         <Link to={"/turfs"} className={`block py-2 px-3 ${val === 'turfs' ? 'text-sky-400' : 'hover:text-sky-400  text-white'} rounded sm:p-0`}>Turfs</Link>
                     </li>
                     <li>
+                        <Link to={"/tournaments"} className={`block py-2 px-3 ${val === 'tournaments' ? 'text-sky-400' : 'hover:text-sky-400  text-white'} rounded sm:p-0`}>Tournaments</Link>
+                    </li>
+                    <li>
                         <Link to={"/booked"} className={`block py-2 px-3 ${val === 'booked' ? 'text-sky-400' : 'hover:text-sky-400  text-white'} rounded sm:p-0`}>Booked</Link>
                     </li>
                     <li>
